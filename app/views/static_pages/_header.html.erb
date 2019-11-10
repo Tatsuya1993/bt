@@ -1,0 +1,19 @@
+<header>
+   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <%= link_to image_tag("logo.png", height: '60px', alt: "ロゴ"), root_path %>
+      <button class="navbar-toggler" type="botton" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"  id="navbarResponsive">
+        <ul class ="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to "ユーザー登録", "#", class: "btn btn-sm btn-outline-primary mr-3 mb-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", "#", class: "btn btn-sm btn-primary" %>
+          </li>
+        </ul>
+      </div>
+    </div> 
+</header>
