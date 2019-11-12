@@ -1,0 +1,11 @@
+<% provide(:title, @user.name) %>
+<div class="container">
+  <h1 class="text-center">
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 text-center border border-primary">いいねをもらった数</div>
+    <div class="col text-center border border-primary">投稿記事数</div>
+  </div>
+</div>

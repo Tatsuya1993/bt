@@ -1,5 +1,7 @@
+@import "bootstrap";
+
 body {
-  background-color: green;
+  background-color: white;
 }
 
 // ジャンボトロン
@@ -15,7 +17,7 @@ body {
     margin:10vh auto;
     background-color:#ffffff4d;
     box-shadow: 0 7px 7px rgba(0, 0, 0, 0.12), 0 12px 40px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 #logreg-forms form {
@@ -89,20 +91,6 @@ body {
   color: #fff;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
 /* Mobile */
 
 @media screen and (max-width:500px){
@@ -137,4 +125,22 @@ body {
         content:'Google+';
     }
 
+}
+
+//ユーザー画像（グラバター）
+.gravatar {
+  border-radius: 50%;
+}
+
+// デバック
+.debug_dump {
+    margin: 50px;
+    padding: 10px;
+    background-color: #B0E0E6;
+    border: dashed;
+}
+
+//ラベル
+label {
+    display: block;
 }
