@@ -9,6 +9,10 @@
         <%= form_for(:session, url: login_path) do |f| %>
           <%= f.email_field :email,class: "form-control mb-1", placeholder: "メールアドレス" %>
           <%= f.password_field :password,class: "form-control mb-1", placeholder: "パスワード" %>
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>ログイン情報を記憶しますか？</span>
+          <% end %>
           <%= f.submit "ログイン", class: "btn btn-md btn-rounded btn-block form-control submit" %>
         <% end %>
         <p class="text-center">アカウントを持っていない場合は <%= link_to "こちらから", new_user_path, class: "text-primary" %></p>
