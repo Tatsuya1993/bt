@@ -1,19 +1,32 @@
 <header>
-   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+   <nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top">
     <div class="container-fluid">
       <%= link_to image_tag("logo.png", height: '60px', alt: "ロゴ"), root_path %>
       <button class="navbar-toggler" type="botton" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse"  id="navbarResponsive">
-        <ul class ="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "ユーザー登録", new_user_path, class: "btn btn-sm btn-outline-primary mr-3 mb-1" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", "#", class: "btn btn-sm btn-primary" %>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse navbar-right"  id="navbarResponsive">
+          <% if logged_in? %>
+          　<div class="dropdown btn-group ml-auto">
+              <a class="btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= gravatar_for current_user, size:40 %>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <%= link_to "プロフィール", current_user, class: "dropdown-item"  %>
+                <%= link_to "設定", '#', class: "dropdown-item" %>
+                <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item"  %>
+              </div>
+            </div>
+          <% else %>
+            <ul class ="navbar-nav ml-auto">
+              <li class="nav-item">
+                <%= link_to "ユーザー登録", new_user_path, class: "btn btn-sm btn-outline-primary mr-3 mb-1" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", login_path, class: "btn btn-sm btn-primary" %>
+              </li>
+            </ul>
+          <% end %>
       </div>
     </div> 
 </header>
