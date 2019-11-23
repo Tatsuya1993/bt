@@ -1,0 +1,29 @@
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid;
+  }
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+.card > .gravatar {
+   height: 100px;
+   width: 100px;
+   margin: 10px auto;
+}
+
+.card-body {
+  text-align: center;
+  background-color: #f0f8ff;
+}

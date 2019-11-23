@@ -4,11 +4,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <%= gravatar_for @user, size:80 %>
-                <div class="file btn btn-lg btn-primary">
-                    写真を変更
-                    <input type="file" name="file"/>
-                </div>
+                <%= gravatar_for @user, size:60 %>
             </div>
         </div>
         <div class="col-md-6">
@@ -117,14 +113,3 @@
         </div>
     </div>
 </div>
-
-<!--<div class="container">-->
-<!--  <h1 class="text-center ">-->
-<!--    <%#= gravatar_for @user %>-->
-<!--    <%#= @user.name %>-->
-<!--  </h1>-->
-<!--  <div class="row">-->
-<!--    <div class="col-sm-12 col-md-6 text-center border border-primary">いいねをもらった数</div>-->
-<!--    <div class="col text-center border border-primary">投稿記事数</div>-->
-<!--  </div>-->
-<!--</div>-->

@@ -13,7 +13,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                 <%= link_to "プロフィール", current_user, class: "dropdown-item"  %>
-                <%= link_to "設定", '#', class: "dropdown-item" %>
+                <%= link_to "ユーザー設定", edit_user_path(current_user), class: "dropdown-item" %>
                 <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item"  %>
               </div>
             </div>

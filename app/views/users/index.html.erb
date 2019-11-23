@@ -1,0 +1,22 @@
+<% provide(:title, 'ユーザー索引') %>
+
+  <div class="container justify-content-between">
+    <h1 class="text-center">ユーザー一覧</h1>
+        <%= will_paginate(@users, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+      <div class="row">
+        <% @users.each do |user| %>
+          <div class="col-md-3 mb-3">
+            <div class="card">
+              <%= gravatar_for user, size: 208 %>
+              <div class="card-body">
+                <%= link_to user.name, user %>
+                <% if current_user.admin? && !current_user?(user) %>
+                 | <%= link_to "delete", user, method: :delete, data: { confirm: "《管理者専用》選択したユーザーを削除しますか？" } %>
+                <% end %>
+              </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+        <%= will_paginate(@users, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  </div>

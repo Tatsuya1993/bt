@@ -12,7 +12,24 @@
             </p>
           </div>
           <div class="col-sm-6 col-md-6">
-            <%= render 'signup_form' %>
+                <div id="logreg-forms">
+                  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">ログイン</h1>
+                    <div class="social-login">
+                        <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> ログイン with Facebook</span> </button>
+                        <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> ログイン with Google+</span> </button>
+                    </div>
+                    <p style="text-align:center"> OR  </p>
+                    <%= form_for(:session, url: login_path) do |f| %>
+                      <%= f.email_field :email,class: "form-control mb-1", placeholder: "メールアドレス" %>
+                      <%= f.password_field :password,class: "form-control mb-1", placeholder: "パスワード" %>
+                      <%= f.label :remember_me, class: "checkbox inline" do %>
+                        <%= f.check_box :remember_me %>
+                        <span>ログイン情報を記憶しますか？</span>
+                      <% end %>
+                      <%= f.submit "ログイン", class: "btn btn-md btn-rounded btn-block form-control submit" %>
+                    <% end %>
+                    <p class="text-center">アカウントを持っていない場合は <%= link_to "こちらから", new_user_path, class: "text-primary" %></p>
+                </div>
           </div>
       　</div>
      </div>

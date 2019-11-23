@@ -1,0 +1,56 @@
+<% provide(:title, "ユーザー設定") %>
+<%= render 'shared/error_messages' %>
+
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-head">
+              <h3>
+                  <%= @user.name %>
+              </h3>
+            </div>
+            <div class="profile-img">
+                <%= gravatar_for @user, size:60 %>
+                <div class="file btn btn-lg btn-primary">
+                    写真を変更
+                    <input type="file" name="file"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+          <%= form_for(@user) do |f| %>
+          <div class="row">
+              <div class="col-md-3 mb-3">
+                <%= f.label :name, "名前" %>
+              </div>
+              <div class="col-md-9 mb-3">
+                <%= f.text_field :name, class: 'form-control' %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <%= f.label :email, "メール" %>
+              </div>
+              <div class="col-md-9 mb-3">
+                <%= f.email_field :email, class: 'form-control' %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <%= f.label :password, "パスワード" %>
+              </div>
+              <div class="col-md-9 mb-3">
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+              <div class="col-md-3 mb-3">
+                <%= f.label :password_confirmation, "パスワードの確認" %>
+              </div>
+              <div class="col-md-9 mb-3">
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+              <div class="col-md-3 mb-3">
+              </div>
+              <div class="col-md-9 mb-3">
+                <%= f.submit "変更する", class: "btn btn-primary btn-block" %>
+              </div>
+          </div>
+        <% end %>
+        </div>
+    </div>
+</div>

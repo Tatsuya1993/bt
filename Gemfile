@@ -11,6 +11,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem 'faker',          '1.7.3'
+gem 'will_paginate',           '3.1.7'
+gem 'will_paginate-bootstrap', '1.0.2'
+gem 'bootstrap-will_paginate'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
