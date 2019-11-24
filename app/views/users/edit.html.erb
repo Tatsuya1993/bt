@@ -45,9 +45,17 @@
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
               </div>
               <div class="col-md-3 mb-3">
+                <%= f.label :affiliation, "所属組織" %>
               </div>
               <div class="col-md-9 mb-3">
-                <%= f.submit "変更する", class: "btn btn-primary btn-block" %>
+                <%= f.text_field :affiliation, class: 'form-control' %>
+              </div>
+              <div class="col-md-3 mb-3">
+                 <%= f.label :s_introduction, "自己紹介" %>
+              </div>              
+              <div class="col-md-9 mb-3">
+                 <%= f.text_area :s_introduction, class: 'form-control' %>
+                 <%= f.submit "変更する", class: "btn btn-primary btn-block mt-3" %>
               </div>
           </div>
         <% end %>
