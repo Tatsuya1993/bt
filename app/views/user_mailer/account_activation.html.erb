@@ -1,5 +1,9 @@
-<h1>User#account_activation</h1>
+<h1>Bio Topics</h1>
+
+<p>はじめまして、<%= @user.name %>さん</p>
 
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/account_activation.html.erb
+ようこそBio Topicsへ! アカウントを有効化するためにはこちらをクリックしてください:
 </p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

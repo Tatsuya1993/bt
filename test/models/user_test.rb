@@ -72,6 +72,6 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "記憶ダイジェストを持たないユーザーは偽になる" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 end
