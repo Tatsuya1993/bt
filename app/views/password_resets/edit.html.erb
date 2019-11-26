@@ -1,0 +1,16 @@
+<% provide(:title, "パスワードのリセット") %>
+
+<div id="logreg-forms">
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">パスワードの再設定</h1>
+      <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= hidden_field_tag :email, @user.email %>
+        
+      　<%= f.label :password %>
+      　<%= f.password_field :password, class: 'form-control' %>
+
+      　<%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.submit "パスワードのアップデート", class: "btn btn-primary" %>
+     <% end %>
+</div>

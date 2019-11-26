@@ -1,0 +1,12 @@
+<% provide(:title, "パスワードを忘れてしまった方へ") %>
+
+<div id="logreg-forms">
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">パスワードの再設定</h1>
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <p class="text-center">登録したメールアドレス を入力してください</p>
+        <%= f.email_field :email, class: 'form-control mb-3' %>
+        <%= f.submit "送信", class: "btn btn-md btn-rounded btn-block form-control submit" %>
+    <% end %>
+</div>
+
+
