@@ -74,4 +74,12 @@ class UserTest < ActiveSupport::TestCase
   test "記憶ダイジェストを持たないユーザーは偽になる" do
     assert_not @user.authenticated?(:remember, '')
   end
+  
+  test "ユーザーが削除された場合には、トピックも削除される" do
+    @user.save
+    @user.topics.create!(title:"test", content: "Lorem ipsum")
+    assert_difference 'Topic.count', -1 do
+      @user.destroy
+    end
+  end
 end
