@@ -56,6 +56,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <% if @user.topics.any? %>
+                              <%= will_paginate @topics %>
+                            　<h3>投稿数： (<%= @user.topics.count %>)</h3>
+                              <ol>
+                                <%= render @topics %>
+                              </ol>
+                              <%= will_paginate @topics %>
+                            <% else %>
                               <h5>投稿された記事はありません。</h5>
                             <% end %>
                         </div>

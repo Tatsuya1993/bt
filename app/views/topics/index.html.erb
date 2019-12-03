@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-3 m-3 mx-auto">
+        <button type="button" class="btn btn-info mr-1">最新順</button>
+        <button type="button" class="btn btn-info ">いいね順</button>
+      </div>
+      <div class="col-md-9 m-3 mx-auto">
+        <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+        <% @topics.each do |topic| %>
+        <hr>
+        <div class="row">
+          <div class="col-1 mx-auto">
+            <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+          </div>
+          <div class="col-11 mx-auto">
+            <%= link_to topic.title, topic_path(topic.id) %>
+            <h6><%= time_ago_in_words(topic.created_at) %> ago.</h6>
+          </div>
+        </div>
+        <hr>
+        <% end %>
+        <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
+  </div>
+</div>
+

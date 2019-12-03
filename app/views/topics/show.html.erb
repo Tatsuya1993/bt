@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3 bg-info">
+      <h4>タイトル：<%= @topic.title %></h4>
+    </div>
+    <div class="col-md-12 bg-light">
+      <!--html_safeでも実装可能、railsguide推奨表記-->
+      <%== @topic.content %>
+    </div>
+    <div class="col-md-12 bg-info">
+      <h5>by <%= @topic.user.name %></h5>
+    </div>
+  </div>
+</div>
+
+

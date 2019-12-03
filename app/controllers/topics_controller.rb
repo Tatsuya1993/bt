@@ -1,2 +1,32 @@
 class TopicsController < ApplicationController
+  
+  def index
+    @topics = Topic.all
+    @topics = @topics.paginate(page: params[:page], per_page: 20)
+  end
+
+  def new
+    @topic = Topic.new
+  end
+  
+  def create
+    @topic = current_user.topics.new(topic_params)
+    if @topic.save
+      redirect_to topics_path, success: '投稿に成功しました'
+    else
+      flash.now[:danger] = "投稿に失敗しました"
+      render :new
+    end
+  end
+  
+  def show
+    @topic = Topic.find(params[:id])
+  end
+  
+  private
+
+  def topic_params
+      params.require(:topic).permit(:title, :content)
+  end
+  
 end

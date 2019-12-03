@@ -1,8 +1,17 @@
-<li id="micropost-<%= topic.id %>">
-  <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
-  <span class="user"><%= link_to topic.title, topic.user %></span>
-  <span class="content"><%= topic.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(topic.created_at) %> ago.
-  </span>
-</li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="col-md-9">
+        <li>
+          <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+          <span><%= link_to topic.title, "#" %></span>
+          <span><%= time_ago_in_words(topic.created_at) %> ago</span>
+        </li>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

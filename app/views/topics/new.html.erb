@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col mb-3">
+    <%= form_for @topic do |f| %>
+      <%= f.label :title, '投稿タイトル' %>
+      <%= f.text_field :title, class: 'form-control', style: "width: 100 %" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <div class="field">
+        <%= f.label :content, '記事内容'  %>
+        <%= f.text_area :content, 'data-provider': :summernote %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <%= f.submit '投稿', class: 'btn btn-info btn-block' %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
