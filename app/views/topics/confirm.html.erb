@@ -1,0 +1,29 @@
+<div class="conatiner">
+  <div class="row">
+    <h5 class="col mt-5 text-center">以下の内容で記事を投稿しますか？</h5>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5 bg-dark text-white">
+    <%= form_for @topic do |f| %>
+      <h4>
+      タイトル：<%= @topic.title %>
+      <%= f.hidden_field :title %>
+      </h4>
+    </div>
+    <div class="col-md-12 bg-white">
+      <!--html_safeでも実装可能、railsguide推奨表記-->
+      <%== @topic.content %>
+      <%= f.hidden_field :content%>
+    </div>
+    <div class="col-md-12 bg-dark text-white">
+      <h5>by <%= @topic.user.name %></h5>
+    </div>
+    <div class="mx-auto m-3">
+      <%= f.submit '投稿する', class: "btn btn-primary" %>
+      <%= f.submit '修正', name: "back",class: "btn btn-default" %>
+    </div>
+    <% end %>
+  </div>
+</div>

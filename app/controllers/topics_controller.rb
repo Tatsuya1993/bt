@@ -9,14 +9,32 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
   
+  
   def create
     @topic = current_user.topics.new(topic_params)
-    if @topic.save
-      redirect_to topics_path, success: '投稿に成功しました'
+
+    if params[:back]
+      render :new
+    elsif @topic.save
+      redirect_to @topic,flash[:info] = "記事が投稿されました。"
     else
-      flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
+  end
+        
+  # def create
+  #   @topic = current_user.topics.new(topic_params)
+  #   if @topic.save
+  #     redirect_to topics_path, success: '投稿に成功しました'
+  #   else
+  #     flash.now[:danger] = "投稿に失敗しました"
+  #     render :new
+  #   end
+  # end
+  
+  def confirm
+    @topic = current_user.topics.new(topic_params)
+    render :new if @topic.invalid?
   end
   
   def show

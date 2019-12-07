@@ -1,3 +1,17 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#navbar.col {
+  margin : 0;
+  padding: 0;
+}
+
+.nav-item.nav-link {
+  padding: 0;
+  margin: 20px auto;
+}
+
+.navbar.navbar-expand-sm.bg-light {
+  padding: 0;
+}

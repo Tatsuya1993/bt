@@ -1,17 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="col-md-9">
-        <li>
-          <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
-          <span><%= link_to topic.title, "#" %></span>
-          <span><%= time_ago_in_words(topic.created_at) %> ago</span>
-        </li>
-      </div>
+  <div class="row topics">
+    <div class="col-1 mx-auto">
+      <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+    </div>
+    <div class="col-11 mx-auto">
+      <%= link_to topic.title, topic_path(topic.id) %>
+      <h6><%= time_ago_in_words(topic.created_at) %> ago.</h6>
     </div>
   </div>
 </div>
-
-
-
-
