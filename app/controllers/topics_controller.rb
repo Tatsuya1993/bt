@@ -32,11 +32,28 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
   
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+  
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.update(topic_params)
+    flash[:success] = "記事は編集されました"
+    redirect_to @topic
+  end
+  
   def destroy
     @topic = Topic.find(params[:id])
-    @topic.destroy
-    flash[:success] = "記事は削除されました"
-    redirect_to topics_path
+    
+    if current_user.id == @topic.user_id
+      @topic.destroy
+      flash[:success] = "記事は削除されました"
+      redirect_to topics_path
+    else
+      redirect_to @topic
+      flash[:danger] = "記事は、作成者以外消せません。"
+    end
   end
   
   private
