@@ -32,10 +32,22 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
   
+  def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    flash[:success] = "記事は削除されました"
+    redirect_to topics_path
+  end
+  
   private
 
   def topic_params
       params.require(:topic).permit(:title, :content)
+  end
+  
+  def correct_user
+    @topic = current_user.topic.find_by(id: params[:id])
+    redirect_to current_user if @topic.nil?
   end
   
 end

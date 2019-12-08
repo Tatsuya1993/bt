@@ -9,6 +9,7 @@
     </div>
     <div class="col-md-12 bg-dark text-white ">
       <h5>by <%= @topic.user.name %></h5>
+      <%= link_to "削除", @topic, method: :delete, data: { confirm: "You sure?" } %>
     </div>
   </div>
 </div>
