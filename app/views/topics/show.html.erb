@@ -20,7 +20,7 @@
     <h5 class= "text-center">【記事作成者限定】<%=current_user.name%>さん</h5>
     <div class="row">
       <%= link_to 'この記事に追記や編集を加えますか？', edit_topic_path, class: 'col-5 btn btn-outline-info mx-auto d-block mt-3' %>
-      <%= link_to "この記事を削除しますか？", @topic, method: :delete, data: { confirm: "You sure?" }, class: 'col-5 col-offset-2 btn btn-outline-info mx-auto d-block mt-3' %>
+      <td><%= link_to "削除" , @topic, class: 'btn btn-outline-info', method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"}, class: 'col-5 col-offset-2 btn btn-outline-info mx-auto d-block mt-3' %></td>
     </div>
   <% end %>
   </div>

@@ -52,7 +52,7 @@ class TopicsController < ApplicationController
       redirect_to topics_path
     else
       redirect_to @topic
-      flash[:danger] = "記事は、作成者以外消せません。"
+      flash[:danger] = "記事は作成者以外消せません。"
     end
   end
   
