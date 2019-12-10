@@ -30,6 +30,8 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
+    @comment = Comment.new
+    @comments = @topic.comments
   end
   
   def edit

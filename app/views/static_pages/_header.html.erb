@@ -28,6 +28,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
             <%= link_to "プロフィール", current_user, class: "dropdown-item"  %>
             <%= link_to "ユーザー設定", edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "お気に入り記事", favorites_index_path(current_user), class: "dropdown-item" %>
             <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item"  %>
           </div>
         </div>

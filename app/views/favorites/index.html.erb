@@ -1,0 +1,26 @@
+<% provide(:title, 'お気に入り記事') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <h5 class="text-center"><%= current_user.name %>さんのお気に入り記事</h5>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 m-3 mx-auto">
+        <%= will_paginate @favorite_topics,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+        <% @favorite_topics.each do |topic| %>
+        <div class="row topics">
+          <div class="col-1 mx-auto p-0">
+            <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+          </div>
+          <div class="col-11 mx-auto">
+            <%= link_to topic.title, topic_path(topic.id) %>
+            <h6><%= time_ago_in_words(topic.created_at) %> ago.</h6>
+          </div>
+        </div>
+        <% end %>
+        <%= will_paginate @favorite_topics,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
+  </div>
+</div>

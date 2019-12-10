@@ -1,5 +1,6 @@
 <% provide(:title, @topic.title) %>
 
+
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-3 bg-dark text-white ">
@@ -9,13 +10,18 @@
       <!--html_safeでも実装可能、railsguide推奨表記-->
       <%== @topic.content %>
     </div>
+    <% if !@topic.favorite_users.include?(current_user) %>
+      <%= link_to favorites_path(topic_id: @topic.id), method: :post do %>
+        <%= image_tag 'heart-black.png', class: 'topic-index-icon', style:"height: 20px;" %>
+      <% end %>
+    <% end %>
     <div class="col-md-12 bg-dark text-white ">
       <h5>by <%= @topic.user.name %></h5>
     </div>
   </div>
 </div>
 
-<div class="container mt-3">
+<div class="container .bg-warning mt-3">
   <% if current_user.id == @topic.user_id %>
     <h5 class= "text-center">【記事作成者限定】<%=current_user.name%>さん</h5>
     <div class="row">
@@ -26,4 +32,19 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5">
+      <h4>コメント一覧</h4>
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments } %>
+      </div> 
+    </div>
+    <div class="col-12">
+      <% if logged_in? %>
+        <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+      <% end %>
+    </div>
 
+  </div>
+</div>
