@@ -1,17 +1,17 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="container">
-      <div class="row mt-1 border border-info">
+      <div class="row mt-1 border border-info rounded">
         <div class="col-md-1">
           <%= gravatar_for comment.user, size:60, class:"float-center" %>
         </div>
         <div class="col-md-10">
-          <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
+          <p class=""><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
           <p><%= comment.content %></p>
         </div>
         <div class="col-md-1">
           <% if comment.user == current_user %>
-            <p><%= link_to '削除', topic_comment_path(comment.topic_id, comment.id), method: :delete, remote: true %></p>
+            <%= link_to '削除', topic_comment_path(comment.topic_id, comment.id), method: :delete, remote: true %></p>
           <% end %>
         </div>
         </div>

@@ -2,3 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.favorite__button {
+    background: linear-gradient(to right, #feb400, #FFE300);
+    line-height: 42px;
+    color: #6d3701;
+    font-size: 14px;
+    padding: 0 18px;
+    border-radius: 100px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+ }

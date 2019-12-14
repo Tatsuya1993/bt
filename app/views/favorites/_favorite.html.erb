@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <% unless @topic.user_id==current_user.id %>
+    <div class="favotite-link mt-3 mx-auto text-center" id="favorite-link-<%= @topic.id %>">
+      <% if current_user.favorites.find_by(topic_id: @topic.id) %>
+        <%= link_to unfavorite_path(@topic.id), method: :delete, remote: true do %>
+            <div class = "favorite__button">いいね解除❤️<%= topic.favorites.count %></div>
+        <% end %>
+      <% else %>
+        <%= link_to favorite_path(topic_id:@topic.id), method: :post, remote: true do %>
+            <div class = "favorite__button">いいね（お気に入り）！♡️<%= topic.favorites.count %></div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

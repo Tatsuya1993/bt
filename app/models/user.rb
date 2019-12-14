@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :topics, dependent: :destroy
   has_many :comments
-  has_many :favorites
-  has_many :favorite_topics, through: :favorites, source: 'topic'
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_topics, through: :favorites, source: :topic
   
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

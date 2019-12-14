@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
        render :index
-      # redirect_to topic_path(@topic.id)
     end
   end
 
@@ -14,13 +13,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id]) 
     if @comment.destroy
       render :index
-      # redirect_to :index
     end
   end
   
   private
 
   def comment_params
-    params.require(:comment).permit(:id, :user_id, :topic_id, :content)
+    params.require(:comment).permit(:user_id, :topic_id, :content)
   end
 end

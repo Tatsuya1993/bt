@@ -1,17 +1,27 @@
 class FavoritesController < ApplicationController
+  
+  def set_up
+    @topic = Topic.find(params[:topic_id])
+    @id_name = "#favorite-link-#{@topic.id}"
+  end
+
   def index
     @favorite_topics = current_user.favorite_topics
     @favorite_topics =  @favorite_topics.paginate(page: params[:page])
   end
-
-  def create
-    favorite = Favorite.new
-    favorite.user_id = current_user.id
-    favorite.topic_id = params[:topic_id]
-    if favorite.save
-      redirect_to favorites_path, success: 'いいね！しました'
-    else
-      redirect_to favorites_path, danger: 'いいねに失敗しました'
-    end
+  
+  def favorite
+    @topic = Topic.find(params[:topic_id])
+    favorite = current_user.favorites.new(topic_id: @topic.id)
+    favorite.save
+    redirect_to @topic
   end
+  
+  def unfavorite
+    @topic = Topic.find(params[:topic_id])
+    favorite = current_user.favorites.find_by(topic_id: @topic.id)
+    favorite.destroy
+    redirect_to @topic
+  end
+
 end

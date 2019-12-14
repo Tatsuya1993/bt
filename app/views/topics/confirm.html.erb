@@ -15,6 +15,7 @@
     <div class="col-md-12 bg-white">
       <!--html_safeでも実装可能、railsguide推奨表記-->
       <%== @topic.content %>
+      <%#== raw @topic.content %>
       <%= f.hidden_field :content%>
     </div>
     <div class="col-md-12 bg-dark text-white">
