@@ -5,7 +5,14 @@ class UsersController < ApplicationController
   
   def index
     # gem_will_pagenateにはpagenateメソッドで呼び出す必要がある
-    @users = User.paginate(page: params[:page])
+    # @users = User.where(activated: true).paginate(page: params[:page]).search(params[:search])
+    @users = if params[:search]
+      #searchされた場合は、原文+.where('name LIKE ?', "%#{params[:search]}%")を実行
+      User.where(activated: true).paginate(page: params[:page]).where('name LIKE ? OR affiliation LIKE ? OR s_introduction LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      #searchされていない場合は、原文そのまま
+      User.where(activated: true).paginate(page: params[:page])
+    end
   end
   
   def show
@@ -16,7 +23,6 @@ class UsersController < ApplicationController
     @topics_all.each do |topic|
       @favorite_count.store("#{topic.user_id}", Favorite.where(topic_id: topic.id).count)
     end
-    # @favorite_count.sum{ |hash| hash[:number]}
   end
   
   def new

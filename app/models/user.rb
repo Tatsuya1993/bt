@@ -71,6 +71,14 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
   
+  def self.search(search) 
+    if search
+      where(['name LIKE ?', "%#{search}%"]) 
+    else
+      all
+    end
+  end
+  
   private
 
     # メールアドレスをすべて小文字にする
