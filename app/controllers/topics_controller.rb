@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   
   def index
     @topics = Topic.all.includes(:favorite_users)
-    @topics = @topics.paginate(page: params[:page], per_page: 20)
+    @topics = @topics.paginate(page: params[:page], per_page: 20).search(params[:search])
   end
 
   def new

@@ -4,13 +4,9 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   
   def index
-    # gem_will_pagenateにはpagenateメソッドで呼び出す必要がある
-    # @users = User.where(activated: true).paginate(page: params[:page]).search(params[:search])
     @users = if params[:search]
-      #searchされた場合は、原文+.where('name LIKE ?', "%#{params[:search]}%")を実行
       User.where(activated: true).paginate(page: params[:page]).where('name LIKE ? OR affiliation LIKE ? OR s_introduction LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      #searchされていない場合は、原文そのまま
       User.where(activated: true).paginate(page: params[:page])
     end
   end
