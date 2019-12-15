@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @topics = @user.topics.paginate(page: params[:page])
+    @topics_all = Topic.all
+    @favorite_count = {}
+    @topics_all.each do |topic|
+      @favorite_count.store("#{topic.user_id}", Favorite.where(topic_id: topic.id).count)
+    end
+    # @favorite_count.sum{ |hash| hash[:number]}
   end
   
   def new

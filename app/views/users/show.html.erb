@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-5 ml-auto mt-3" style="border: 1px solid #000000;">
+      <div class="col-md-12 mt-3" style="border: 1px solid #000000;">
         <div class="bg-dark user_info">
           <h4 class="text-white text-center">ユーザー情報</h4>
         </div>
@@ -10,13 +10,6 @@
           <h6 class="text-center alert-info mt-3 mx-3 rounded-pill">ニックネーム:<%= @user.name %></h4>
           <h6 class="text-center alert-info mt-3 mx-3 rounded-pill">所属：<%= @user.affiliation %></h6>
           <p class="text-center"><%= @user.s_introduction %></p>
-      </div>
-      <div class="col-md-5 ml-auto mt-3" style="border: 1px solid #000000;">
-        <div class="bg-dark topics_info">
-          <h4 class="text-white text-center">投稿記事情報</h4>
-        </div>
-        <h6 class="text-center">記事投稿：<%= @user.topics.count %></h4>
-        <h6 class="text-center">いいね　：</h4>
       </div>
   </div>
   <div class="row">
