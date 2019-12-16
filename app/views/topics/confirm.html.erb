@@ -8,15 +8,17 @@
     <div class="col-md-12 mt-5 bg-dark text-white">
     <%= form_for @topic do |f| %>
       <h4>
-      タイトル：<%= @topic.title %>
+      <%= @topic.title %>
       <%= f.hidden_field :title %>
       </h4>
     </div>
     <div class="col-md-12 bg-white">
-      <!--html_safeでも実装可能、railsguide推奨表記-->
+      <%= @topic.tag_list %>
+      <%= f.hidden_field :tag_list %>
+    </div>
+    <div class="col-md-12 bg-white">
       <%== @topic.content %>
-      <%#== raw @topic.content %>
-      <%= f.hidden_field :content%>
+      <%= f.hidden_field :content %>
     </div>
     <div class="col-md-12 bg-dark text-white">
       <h5>by <%= @topic.user.name %></h5>

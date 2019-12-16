@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all.includes(:favorite_users)
     @topics = @topics.paginate(page: params[:page], per_page: 20).search(params[:search])
+    @all_ranks = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(10).pluck(:topic_id))
   end
 
   def new
@@ -61,7 +62,7 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-      params.require(:topic).permit(:title, :content)
+      params.require(:topic).permit(:title, :content, tag_list:[])
   end
   
   def correct_user

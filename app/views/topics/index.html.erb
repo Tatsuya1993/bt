@@ -1,6 +1,5 @@
 <div class="container mt-5">
   <div class="row">
-    
     <div class="col-md-12 mt-3 p-0 ">
     <h4 class="text-center text-light bg-dark py-3 rounded"><i class="fas fa-search"></i>記事検索</h4>
     <%= form_tag(yield(:path), method: :get) do %>
@@ -8,8 +7,12 @@
       <%= submit_tag '検索',class:"btn btn-primary btn-block mt-1" %>
     <% end %>
     </div>
-    
-    <div class="col-md-12 m-3 mx-auto">
+  </div>
+</div>
+
+<div class="container-fluid mx-auto"> 
+  <div class="row mx-3 mt-5">
+    <div class="col-md-8 col-sm-12 mx-auto">
       <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
       <% @topics.each do |topic| %>
       <div class="row topics">
@@ -28,8 +31,33 @@
       </div>
         <% end %>
         <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
+    
+      <div class="col-md-4 col-sm-12 mx-auto">
+        <div class="iine-ranking bg-light py-1">
+        <h5 class="text-center bg-warning py-3">
+          <i class="fas fa-crown">
+          　注目の記事　
+          </i>
+          <i class="fas fa-crown"></i>
+        </h5>
+        <% @all_ranks.each do |topic| %>
+        <div class="row topics mx-3">
+          <div class="col-2 mx-auto p-0">
+            <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+          </div>
+          <div class="col-10 mx-auto">
+            <%= link_to topic.title, topic_path(topic.id) %>
+            <% if topic.favorite_users.count > 0 %>
+            <div class="d-inline">
+              ❤️<%=topic.favorite_users.count %>
+            </div>
+            <% end %>
+            <h6><%= time_ago_in_words(topic.created_at) %> ago.</h6>
+          </div>
+        </div>
+        <% end %>
+        </div>
       </div>
-      
-  </div>
+    </div>
 </div>
-
