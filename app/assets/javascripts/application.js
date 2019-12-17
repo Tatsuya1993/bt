@@ -22,4 +22,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require data-confirm-modal
+//= require bootstrap-tagsinput.min
 //= require_tree .

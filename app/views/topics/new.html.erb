@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-12 mt-3">
         <%= f.label :tag_list, 'タグ(カンマ区切り）' %>
-        <%= f.text_field :tag_list, value: @topic.tag_list.split(','), class: 'form-control', style: "width: 100 %" %>
+        <%= f.text_field :tag_list, value: @topic.tag_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
       </div>
     </div>
     <div class="row">
@@ -36,5 +36,3 @@
     </div>
   </div>
 </div>
-
-<%= @topic_ranking.all %>

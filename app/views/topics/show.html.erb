@@ -14,15 +14,13 @@
     <div class="col-md-12 mt-3 py-3 bg-dark text-white ">
       <h4 class="d-inline">
         <%= @topic.title %>
-        <% if current_user.id == @topic.user_id %>
-         <%= link_to edit_topic_path do %>
-          <i class="far fa-edit btn btn-outline-light mx-2"> 編集</i>
-         <% end %>
-        <%= link_to @topic, method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
-          <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
-          <% end %>
-        <% end %>
+        <%= render partial: "author_function" %>
       </h4>
+      <div >
+      <% @topic.tag_list.each do |tag| %>
+        <span class="badge badge-primary"><%= tag %></span>
+      <% end %>
+      </div>
     </div>
     <div class="col-md-12 bg-white">
       <!--html_safeでも実装可能、railsguide推奨表記-->
@@ -37,7 +35,6 @@
 <div class="container bg-light mt-3 py-3">
   <div class="row">
     <div class="col-12">
-      <h5 class="text-center">この記事に対するコメントです</h5>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments } %>
       </div> 

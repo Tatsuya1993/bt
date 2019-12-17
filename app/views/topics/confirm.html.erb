@@ -6,15 +6,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-5 bg-dark text-white">
+      
     <%= form_for @topic do |f| %>
       <h4>
       <%= @topic.title %>
       <%= f.hidden_field :title %>
       </h4>
-    </div>
-    <div class="col-md-12 bg-white">
-      <%= @topic.tag_list %>
-      <%= f.hidden_field :tag_list %>
+      <% @topic.tag_list.each do |tag| %>
+      　<%= f.hidden_field :tag_list, value: @topic.tag_list.join(',') %>
+        <span class="badge badge-primary"><%= tag %></span>
+      <% end %>
     </div>
     <div class="col-md-12 bg-white">
       <%== @topic.content %>
