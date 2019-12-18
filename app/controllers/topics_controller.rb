@@ -1,9 +1,12 @@
 class TopicsController < ApplicationController
   
   def index
-    @topics = Topic.all.includes(:favorite_users)
-    @topics = @topics.paginate(page: params[:page], per_page: 20).search(params[:search])
+    @topics = Topic.all.includes(:favorite_users).paginate(page: params[:page], per_page: 20).search(params[:search])
     @all_ranks = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(10).pluck(:topic_id))
+    
+    if params[:tag_name]
+      @topics = @topics.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def new
