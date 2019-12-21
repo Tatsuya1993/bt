@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'uploads/create'
-  get 'uploads/destroy'
+  get    'uploads/create'
+  get    'uploads/destroy'
   root   'static_pages#home'
   get    '/help',               to: 'static_pages#help'
   get    '/about',              to: 'static_pages#about'
@@ -21,6 +21,11 @@ Rails.application.routes.draw do
     end
     
     resources :comments
+  end
+  resources :words do
+    collection do
+      post 'confirm'
+    end
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

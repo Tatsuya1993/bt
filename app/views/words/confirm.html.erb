@@ -1,0 +1,29 @@
+<div class="conatiner">
+  <div class="row">
+    <h5 class="col mt-5 text-center">以下の内容で記事を投稿しますか？</h5>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5 bg-dark text-white">
+      
+    <%= form_for @word do |f| %>
+    <h4>
+      <%= @word.name %> とは？
+      <%= f.hidden_field :name %>
+    </h4>
+    </div>
+    <div class="col-md-12 bg-white">
+      <%== @word.description %>
+      <%= f.hidden_field :description %>
+    </div>
+    <div class="col-md-12 bg-dark text-white">
+    <p>作成者 :,編集者:,作成日時:<%= @word.created_at %>,編集日時：<%= @word.updated_at %></p>
+    </div>
+    <div class="mx-auto m-3">
+      <%= f.submit '投稿する', class: "btn btn-primary" %>
+      <%= f.submit '修正', name: "back",class: "btn btn-default" %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid mx-auto"> 
+  <div class="row mx-3 mt-5">
+    <div class="col-md-8 col-sm-12 mx-auto p-0">
+      <% if params[:tag_name] %>
+        <div class="alert alert-info">"タグ：<%= params[:tag_name] %>" で絞り込み中</div>
+      <% end %>
+      
+      <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      <% @topics.each do |topic| %>
+      <div class="row topics bg-light mx-3">
+        <div class="col-1 mx-auto p-0">
+          <%= link_to gravatar_for(topic.user, size: 50), topic.user %>
+        </div>
+        <div class="col-11 mx-auto">
+          <%= link_to topic.title, topic_path(topic.id) %>
+          <% if topic.favorite_users.count > 0 %>
+          <div class="d-inline">
+            ❤️<%=topic.favorite_users.count %>
+          </div>
+          <% end %>
+          <h6><%= time_ago_in_words(topic.created_at) %> ago.</h6>
+        </div>
+      </div>
+        <% end %>
+        <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
+    <% unless params[:tag_name] %>
+    　<%= render partial:"iine_ranking" %>
+    <% end %>
+  </div>
+</div>
