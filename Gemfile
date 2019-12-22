@@ -20,6 +20,7 @@ gem 'bootstrap-will_paginate'
 gem 'data-confirm-modal'
 gem 'carrierwave'
 gem 'acts-as-taggable-on'
+gem 'rails-i18n'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

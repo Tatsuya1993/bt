@@ -1,32 +1,25 @@
-<% provide(:title, @word.title) %>
+<% provide(:title, @word.name) %>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-3 py-3 bg-dark text-white ">
       <h4 class="d-inline">
         <%= @word.name %> とは？
+        <%= link_to edit_word_path do %>
+          <i class="far fa-edit btn btn-outline-light mx-2"> 編集</i>
+        <% end %>
+        <%= link_to @word, method: :delete, data: {confirm: "単語を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
+          <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
+        <% end %>
       </h4>
     </div>
     <div class="col-md-12 bg-white">
-      <%== @word.content %>
+      <%== @word.description %>
     </div>
     <div class="col-md-12 py-3 bg-dark text-white ">
-      <h5>by <%= @topic.user.name %></h5>
-    </div>
-  </div>
-</div>
-
-<div class="container bg-light mt-3 py-3">
-  <div class="row">
-    <div class="col-12">
-      <div id="comments_area">
-        <%= render partial: 'comments/index', locals: { comments: @comments } %>
-      </div> 
-    </div>
-    <div class="col-12">
-      <% if logged_in? %>
-        <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-      <% end %>
+      <p>最終編集者:<%= link_to @word.user.name %></p>
+      <p>作成日時:<%= @word.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
+      <p>編集日時:<%= @word.updated_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
     </div>
   </div>
 </div>
