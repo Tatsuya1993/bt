@@ -13,10 +13,13 @@
         </li>
         <li class="nav-item">
           <%= link_to words_path, class: 'nav-link my-auto' do %>
-            <i class="fas fa-book book-icon "> 辞書</i>
+            <i class="fas fa-book book-icon"> 辞書</i>
           <% end %>
         </li>
         <li class="nav-item">
+          <%= link_to help_path, class: 'nav-link my-auto' do %>
+            <i class="far fa-question-circle question-icon"> 使い方</i>
+          <% end %>
         </li>
       </ul>
       <% if logged_in? %>

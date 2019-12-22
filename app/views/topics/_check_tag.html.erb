@@ -1,0 +1,24 @@
+<div class="form-check">
+  <%= f.check_box :tag_list, '生物学全般', {multiple: true, class:"form-check-input"}%>
+  <%= label_tag :tag_list, '生物学全般' %>
+  <%= f.check_box :tag_list, '分類学', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '分類学' %>
+  <%= f.check_box :tag_list, '遺伝学', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '遺伝学' %>
+  <%= f.check_box :tag_list, '生態学', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '生態学' %>
+  <%= f.check_box :tag_list, '生化学', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '生化学' %>
+  <%= f.check_box :tag_list, '論文', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '論文' %>
+  <%= f.check_box :tag_list, '観察日記', {multiple: true, class:"form-check-input"} %>
+  <%= label_tag :tag_list, '観察日記' %>
+</div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <% ["black","white","blue","brown"].each do |color| %>
+      <%= form.check_box :color, {multiple: true}, color, nil %>
+      <%= color %>
+    <% end %>
+  </div>

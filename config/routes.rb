@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get    'uploads/create'
-  get    'uploads/destroy'
   root   'static_pages#home'
   get    '/help',               to: 'static_pages#help'
+  get    '/terms',              to: 'static_pages#terms'
+  get    '/privacy',            to: 'static_pages#privacy'
   get    '/about',              to: 'static_pages#about'
   get    '/contact',            to: 'static_pages#contact'
   get    '/login',              to: 'sessions#new'
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get    '/favorites/index'
   post   '/favorites/:topic_id', to: 'favorites#favorite', as: 'favorite'
   delete '/favorites/:topic_id', to: 'favorites#unfavorite', as: 'unfavorite'
+  get    'uploads/create'
+  get    'uploads/destroy'
 
 
   resources :users
