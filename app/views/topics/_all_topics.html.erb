@@ -5,7 +5,7 @@
         <div class="alert alert-info">"タグ：<%= params[:tag_name] %>" で絞り込み中</div>
       <% end %>
       
-      <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      <%= will_paginate @topics,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
       <% @topics.each do |topic| %>
       <div class="row topics bg-light mx-3">
         <div class="col-1 mx-auto p-0">
@@ -22,7 +22,7 @@
         </div>
       </div>
         <% end %>
-        <%= will_paginate @topics_paging,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+        <%= will_paginate @topics,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     </div>
     <% unless params[:tag_name] %>
     　<%= render partial:"iine_ranking" %>

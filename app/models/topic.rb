@@ -30,4 +30,9 @@ class Topic < ApplicationRecord
       all
     end
   end
+  
+  def self.content_intro
+    @topic = Topic.find(params[:id])
+    @topic.content[0..10]
+  end
 end

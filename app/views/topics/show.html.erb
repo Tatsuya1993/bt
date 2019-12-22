@@ -1,13 +1,7 @@
 <% provide(:title, @topic.title) %>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-    <%= render 'favorites/favorite', topic: @topic %>
-    </div>
-  </div>
-</div>
+
 
 <div class="container">
   <div class="row">
@@ -24,11 +18,18 @@
       </div>
     </div>
     <div class="col-md-12 bg-white">
-      <!--html_safeでも実装可能、railsguide推奨表記-->
       <%== @topic.content %>
     </div>
     <div class="col-md-12 py-3 bg-dark text-white ">
       <h5>記事作成者： <%= link_to @topic.user.name, user_path(id: @topic.user_id) %></h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <%= render 'favorites/favorite', topic: @topic %>
     </div>
   </div>
 </div>

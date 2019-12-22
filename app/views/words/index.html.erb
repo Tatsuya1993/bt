@@ -12,16 +12,38 @@
   </div>
 </div>
 
-<div class="container-fluid mx-auto"> 
-  <div class="row mx-3 mt-5">
-    <div class="col-md-8 col-sm-12 mx-auto p-0">
+<div class="container pt-3">
+  <%= will_paginate(@words, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    <div class="row">
       <% @words.each do |word| %>
-      <div class="row topics bg-light mx-3">
-        <div class="col-12">
-          <%= link_to word.name, word_path(word.id) %>
+        <div class=" col-sm-3 col-md-2 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <%= link_to word.name, word_path(word.id) %>
+            </div>
         </div>
       </div>
       <% end %>
     </div>
-  </div>
+  <%= will_paginate(@words, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
 </div>
+
+
+
+
+
+<!--<div class="container-fluid mx-auto"> -->
+<!--  <div class="row mx-3 mt-5">-->
+<!--    <div class="col-md-8 col-sm-12 mx-auto p-0">-->
+<!--      <%#= will_paginate @words,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>-->
+<!--      <%# @words.each do |word| %>-->
+<!--      <div class="row topics bg-light mx-3">-->
+<!--        <div class="col-12">-->
+<!--          <%#= link_to word.name, word_path(word.id) %>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <%# end %>-->
+<!--      <%#= will_paginate @words,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -30,3 +30,8 @@ end
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.topics.create!(title: title, content: content) }
 end
+
+50.times do |n|
+  Word.create!(name: "example-#{n+1}",
+               description: "example-#{n+1}")
+end

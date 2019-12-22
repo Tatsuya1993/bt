@@ -17,6 +17,12 @@
     </div>
     <div class="row">
       <div class="col-12 mt-3">
+        <%= f.label :search_key, 'カタカタによる頭文字（1文字）' %>
+        <%= f.text_field :search_key, class: 'form-control', style: "width: 5%" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-3">
         <%= f.label :description, '説明'  %>
         <%= f.text_area :description, 'data-provider': :summernote %>
       </div>
