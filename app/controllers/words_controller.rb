@@ -1,6 +1,9 @@
 class WordsController < ApplicationController
+  require 'nkf'
+  
   def index
-    @words = Word.all.paginate(page: params[:page], per_page: 20).search(params[:search])
+    @words = Word.all.paginate(page: params[:page], per_page: 48).search(params[:search])
+    @hiragana = [*"ｱ".."ﾜ"].map{ |chr| NKF.nkf("-h1w", NKF.nkf("-Xw", chr)) }
   end
 
   def show
