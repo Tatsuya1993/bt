@@ -2,8 +2,13 @@ class WordsController < ApplicationController
   require 'nkf'
   
   def index
-    @words = Word.all.paginate(page: params[:page], per_page: 48).search(params[:search])
+    @words = Word.paginate(page: params[:page], per_page: 48).search(params[:search])
+    # あ〜を文字配列
     @hiragana = [*"ｱ".."ﾜ"].map{ |chr| NKF.nkf("-h1w", NKF.nkf("-Xw", chr)) }
+    
+    if params[:search_key]
+      @words = Word.where(search_key: params[:search_key]).paginate(page: params[:page], per_page: 48)
+    end
   end
 
   def show
@@ -53,7 +58,7 @@ class WordsController < ApplicationController
   private
 
   def word_params
-    params.require(:word).permit(:name, :description)
+    params.require(:word).permit(:name, :description, :search_key)
   end
 
 end

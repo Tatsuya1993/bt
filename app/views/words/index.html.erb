@@ -12,76 +12,7 @@
   </div>
 </div>
 
-<div class="container bg-light rounded my-3 pb-3">
-  <div class="row">
-    <div class="col p-0">
-      <h5 class="bg-dark text-center text-light rounded">あいうえお検索</h5>
-    </div>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana.first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[5..9].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[10..14].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[15..19].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[20..24].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[25..29].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[30..34].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[35..37].first(3).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-  <div class="row mb-1">
-    <% @hiragana[38..43].first(5).each do | i | %>
-    <div class="col text-center">
-      <button type="button" class="btn btn-outline-dark"><%= i %></button>
-    </div>
-    <% end %>
-  </div>
-</div>
+<%= render partial:'initial_search' %>
 
 <div class="container pt-3">
   <%= will_paginate(@words, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
