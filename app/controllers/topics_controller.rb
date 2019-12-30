@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @topic.tag_list = "生態学,遺伝学,分類学,生化学"
   end
   
   

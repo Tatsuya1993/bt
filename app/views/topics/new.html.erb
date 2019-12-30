@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col-12 mt-3">
-        <%= f.label :tag_list, 'タグ(カンマ区切り）' %>
+        <%= f.label :tag_list, 'タグ(カンマ区切りで任意のタグを付加できます）' %>
         <%= f.text_field :tag_list, value: @topic.tag_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
       </div>
     </div>
