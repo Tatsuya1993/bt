@@ -3,9 +3,9 @@
 <div class="container-fluid mt-5">
   <div class="row mx-3">
     <div class="col-md-12 mt-3 p-0 ">
-    <h4 class="text-center text-light bg-dark py-3 rounded"><i class="fas fa-search"></i>調べたい言葉は何ですか？</h4>
+    <h4 class="text-center text-light bg-dark py-3 rounded"><i class="fas fa-search"></i>辞書</h4>
     <%= form_tag(yield(:path), method: :get) do %>
-      <%= text_field_tag :search, params[:search], class:"form-control" %>
+      <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"調べたい単語を入力してください" %>
       <%= submit_tag '検索',class:"btn btn-primary btn-block mt-1" %>
     <% end %>
     </div>
