@@ -1,5 +1,6 @@
 class Word < ApplicationRecord
   has_many :user
+  has_many :user_words, through: :user
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   

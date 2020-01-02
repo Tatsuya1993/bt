@@ -8,29 +8,13 @@
         <p class="text-light">Biotopicsは、読者の皆さんが生物学に関する知識や関心を共有するための記事投稿サイトです。朝顔の観察日記から、読んだ論文から得た知見、実験の失敗談など 生物学に関連するもので記事であれば、なんでもありです。 是非、あなたの生物学の知見を皆さんへ共有してください；）</p>
       </div>
       <div class="col-sm-6 col-md-6">
-        <div id="logreg-forms">
-          <h1 class="h3 mb-3 font-weight-normal text-light" style="text-align: center">ログイン</h1>
-            <div class="social-login">
-                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> ログイン with Facebook</span> </button>
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> ログイン with Google+</span> </button>
-            </div>
-            <p style="text-align:center"> OR  </p>
-            <%= form_for(:session, url: login_path) do |f| %>
-              <%= f.email_field :email,class: "form-control mb-1", placeholder: "メールアドレス" %>
-              <%= f.password_field :password,class: "form-control mb-1", placeholder: "パスワード" %>
-              <%= f.label :remember_me, class: "checkbox inline" do %>
-                <%= f.check_box :remember_me %>
-                <span>ログイン情報を記憶しますか？</span>
-              <% end %>
-              <%= f.submit "ログイン", class: "btn btn-md btn-rounded btn-block form-control submit" %>
-            <% end %>
-            <p class="text-center">アカウントを持っていない場合は <%= link_to "こちらから", new_user_path, class: "text-primary" %></p>
-            <p class="text-center">パスワードを忘れた場合は <%= link_to "こちらから", new_password_reset_path, class: "text-primary" %></p>
-        </div>
+        <%= render partial: 'shared/login_form' %>
       </div>
     </div>
   </div>
 </div>
+            <%= link_to "こちらから", new_user_path, class: "btn btn-primary btn-sm" %>
+            <%= link_to "こちらから", new_password_reset_path, class: "btn btn-primary btn-sm" %>
 
 
 

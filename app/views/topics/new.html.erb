@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-     <div class="col mt-5">
-     <h2 class="d-inline">記事投稿</h2>
-     <%= link_to '記事一覧', topics_path, class: 'btn btn-outline-info d-inline float-right' %>
+     <div class="col mt-5 bg-dark py-2 rounded">
+     <h2 class="d-inline text-light"><i class="fas fa-pencil-alt"> 記事投稿</i></h2>
+     <%= link_to '記事一覧', topics_path, class: 'btn btn-info d-inline float-right' %>
      </div>
   </div>
     <%= form_for @topic, url: {action: 'confirm'} do |f|  %>
