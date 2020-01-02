@@ -4,7 +4,6 @@
       <% if params[:tag_name] %>
         <div class="alert alert-info">"タグ：<%= params[:tag_name] %>" で絞り込み中</div>
       <% end %>
-      
       <%= will_paginate @topics,renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
       <% @topics.each do |topic| %>
       <div class="row topics bg-light mx-3">

@@ -17,12 +17,14 @@
     <div class="row">
       <% @users.each do |user| %>
         <div class="col-md-3 mb-3">
-          <div class="card">
+          <div class="card bg-dark">
             <%= gravatar_for user, size: 208 %>
-            <div class="card-body">
+            <div class="card-body rounded-bottom">
               <%= link_to user.name, user %>
               <% if current_user.admin? && !current_user?(user) %>
-               | <%= link_to "delete", user, method: :delete, data: { confirm: "《管理者専用》選択したユーザーを削除しますか？" } %>
+              <div>
+                <%= link_to "削除", user, method: :delete, data: {confirm: "ユーザーを削除しますか？", cancel: "キャンセル", commit: "削除", title: "削除の確認"}, class:"btn btn-danger" %>
+              </div>
               <% end %>
             </div>
         </div>
