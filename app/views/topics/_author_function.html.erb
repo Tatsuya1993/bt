@@ -1,8 +1,10 @@
-<% if current_user.id == @topic.user_id %>
-  <%= link_to edit_topic_path do %>
-    <i class="far fa-edit btn btn-outline-light mx-2"> 編集</i>
-  <% end %>
-  <%= link_to @topic, method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
-    <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
+<% if logged_in? %>
+  <% if current_user.id == @topic.user_id %>
+    <%= link_to edit_topic_path do %>
+      <i class="far fa-edit btn btn-outline-light mx-2"> 編集</i>
+    <% end %>
+    <%= link_to @topic, method: :delete, data: {confirm: "投稿記事を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
+      <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
+    <% end %>
   <% end %>
 <% end %>
