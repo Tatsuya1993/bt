@@ -2,7 +2,7 @@
   <% unless comment.id.nil? %>
     <div class="container">
       <div class="row mt-1 border border-info rounded">
-        <div class="col-md-1">
+        <div class="col-md-1 my-auto">
           <%= gravatar_for comment.user, size:60, class:"float-center" %>
         </div>
         <div class="col-md-10">
@@ -19,3 +19,4 @@
     </div>
   <% end %>
 <% end %>
+

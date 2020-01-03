@@ -38,7 +38,11 @@
   <div class="row">
     <div class="col-12">
       <div id="comments_area">
-        <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        <% if @comments.any? %>
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        <% else %>
+          <h5 class="text-center">まだコメントはありません…</h5>
+        <% end %>
       </div> 
     </div>
     <div class="col-12">
