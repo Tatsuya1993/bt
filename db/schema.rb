@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2019_12_25_170731) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin"
     t.text "s_introduction"
     t.string "affiliation"
     t.string "activation_digest"
@@ -97,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_12_25_170731) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.string "image"
+    t.boolean "admin", default: false
   end
 
   create_table "words", force: :cascade do |t|

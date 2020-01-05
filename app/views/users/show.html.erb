@@ -6,7 +6,7 @@
         <div class="bg-dark user_info">
           <h4 class="text-white text-center">ユーザー情報</h4>
         </div>
-          <%= gravatar_for @user, size:60, class:"float-center" %>
+          <%= gravatar_for @user, size:100, class:"float-center" %>
           <h5 class="text-center alert-info mt-3 mx-3 rounded bg-light">ニックネーム:<%= @user.name %></h4>
           <h5 class="text-center alert-info mt-3 mx-3 rounded bg-light">所属：<%= @user.affiliation %></h6>
           <p class="text-center"><%= @user.s_introduction %></p>

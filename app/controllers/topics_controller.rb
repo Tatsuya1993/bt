@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   
   def index
-    @topics = Topic.includes(:favorite_users).paginate(page: params[:page], per_page: 20).search(params[:search])
+    @topics = Topic.includes(:favorite_users).paginate(page: params[:page], per_page: 10).search(params[:search])
     @all_ranks = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(10).pluck(:topic_id))
     
     if params[:tag_name]
@@ -11,13 +11,11 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @topic.tag_list = "生態学,遺伝学,分類学,生化学"
   end
   
   
   def create
     @topic = current_user.topics.new(topic_params)
-
     if params[:back]
       render :new
     elsif @topic.save

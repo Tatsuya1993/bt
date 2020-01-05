@@ -5,9 +5,15 @@ class UsersController < ApplicationController
   
   def index
     @users = if params[:search]
-      User.where(activated: true).paginate(page: params[:page]).where('name LIKE ? OR affiliation LIKE ? OR s_introduction LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+      User.where(activated: true)
+      　.where(admin: false)
+        .where('name LIKE ? OR affiliation LIKE ? OR s_introduction LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+        .paginate(page: params[:page], per_page: 12)
     else
-      User.where(activated: true).paginate(page: params[:page])
+      User
+      .where(activated: true)
+      .where(admin: false)
+      .paginate(page: params[:page], per_page: 12)
     end
   end
   

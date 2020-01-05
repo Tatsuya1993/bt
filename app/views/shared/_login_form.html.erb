@@ -14,4 +14,12 @@
       <% end %>
       <%= f.submit "ログイン", class: "btn btn-md btn-rounded btn-block form-control submit" %>
     <% end %>
+    <div class="my-3">
+      <%= link_to new_user_path, class: "btn btn-success btn-sm mx-5 my-2" do %>
+        <h6 class="text-center"><i class="far fa-user">ユーザー登録がまだの場合</i></h6>
+      <% end %>
+      <%= link_to new_password_reset_path, class: "btn btn btn-danger btn-sm mx-5 my-2" do %>
+        <h6 class="text-center"><i class="far fa-dizzy">パスワードを忘れてしまった場合</i></h6>
+      <% end %>
+    </div>
 </div>
