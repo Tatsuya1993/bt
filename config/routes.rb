@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get    '/favorites/index'
   post   '/favorites/:topic_id', to: 'favorites#favorite', as: 'favorite'
   delete '/favorites/:topic_id', to: 'favorites#unfavorite', as: 'unfavorite'
-  get    'uploads/create'
-  get    'uploads/destroy'
+  get    '/uploads/create'
+  get    '/uploads/destroy'
 
 
   resources :users
@@ -22,8 +22,13 @@ Rails.application.routes.draw do
       post 'confirm'
     end
     
+    member do
+      patch 'edit_confirm'
+    end
+    
     resources :comments
   end
+  
   resources :words do
     collection do
       post 'confirm'

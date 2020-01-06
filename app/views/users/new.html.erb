@@ -2,11 +2,6 @@
 
 <div id="logreg-forms">
     <h1 class="h3 font-weight-normal text-center mt-5">ユーザー登録</h1>
-    <div class="social-login">
-      <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> ユーザー登録 with Facebook</span> </button>
-      <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> ユーザー登録 Google+</span> </button>
-    </div>
-    <p style="text-align:center"> OR  </p>
     <p style="text-align:center"> 以下の情報で登録 </p>
     <%= render 'shared/error_messages'%>
     <%= form_for @user do |f| %>

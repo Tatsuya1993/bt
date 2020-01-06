@@ -1,10 +1,5 @@
 <div id="logreg-forms">
   <h1 class="h3 font-weight-normal text-center">ログイン</h1>
-    <div class="social-login">
-        <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> ログイン with Facebook</span> </button>
-        <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> ログイン with Google+</span> </button>
-    </div>
-    <p style="text-align:center"> OR  </p>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.email_field :email,class: "form-control mb-1", placeholder: "メールアドレス" %>
       <%= f.password_field :password,class: "form-control mb-1", placeholder: "パスワード" %>

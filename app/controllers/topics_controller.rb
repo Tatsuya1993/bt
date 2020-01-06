@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   
   def index
-    @topics = Topic.includes(:favorite_users).paginate(page: params[:page], per_page: 10).search(params[:search])
+    @topics = Topic.includes(:favorite_users).search(params[:search]).paginate(page: params[:page], per_page: 10)
     @all_ranks = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(10).pluck(:topic_id))
     
     if params[:tag_name]
@@ -12,7 +12,6 @@ class TopicsController < ApplicationController
   def new
     @topic = Topic.new
   end
-  
   
   def create
     @topic = current_user.topics.new(topic_params)
@@ -29,6 +28,10 @@ class TopicsController < ApplicationController
   def confirm
     @topic = current_user.topics.new(topic_params)
     render :new if @topic.invalid?
+  end
+  
+  def edit_confirm
+    @topic = Topic.find(params[:id])
   end
   
   def show
