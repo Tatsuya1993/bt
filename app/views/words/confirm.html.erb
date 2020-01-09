@@ -18,7 +18,6 @@
       <%= f.hidden_field :description %>
     </div>
     <div class="col-md-12 bg-dark text-white">
-      <p>最終編集者:<%= @word.user.name %></p>
       <p>作成日時:<%= Time.current.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
       <p>編集日時:<%= Time.current.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></p>
     </div>
