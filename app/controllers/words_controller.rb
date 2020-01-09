@@ -2,11 +2,11 @@ class WordsController < ApplicationController
   require 'nkf'
   
   def index
-    @words = Word.paginate(page: params[:page], per_page: 48).search(params[:search])
+    @words = Word.paginate(page: params[:page], per_page: 30).search(params[:search])
     @hiragana = [*"ｱ".."ﾜ"].map{ |chr| NKF.nkf("-h1w", NKF.nkf("-Xw", chr)) }
     
     if params[:search_key]
-      @words = Word.initial_search(params[:search_key]).paginate(page: params[:page], per_page: 48)
+      @words = Word.initial_search(params[:search_key]).paginate(page: params[:page], per_page: 30)
     end
   end
 

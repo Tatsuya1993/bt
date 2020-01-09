@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = if params[:search]
       User.where(activated: true)
-      　.where(admin: false)
+        .where(admin: false)
         .where('name LIKE ? OR affiliation LIKE ? OR s_introduction LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
         .paginate(page: params[:page], per_page: 12)
     else
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "アカウントを有効化するために、あなたにお送りしたメールを確認してください。"
+      flash[:info] = "アカウントを有効化するために、お送りしたメールを確認してください。"
       redirect_to root_url
     else
       render 'new'

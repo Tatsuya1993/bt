@@ -9,9 +9,11 @@
           <%= link_to edit_word_path do %>
             <i class="far fa-edit btn btn-outline-light mx-2"> 編集</i>
           <% end %>
-          <%= link_to @word, method: :delete, data: {confirm: "単語を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
-            <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
-          <% end %>
+          <% if current_user.admin == true %>
+            <%= link_to @word, method: :delete, data: {confirm: "単語を削除しますか？", cancel: "キャンセル", commit: "削除する", title: "削除の確認"} do%>
+              <i class="fas fa-eraser btn btn-outline-light "> 削除</i>
+            <% end %>
+          <% end %>  
         <% end %>
       </h4>
     </div>
