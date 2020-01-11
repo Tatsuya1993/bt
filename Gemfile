@@ -18,7 +18,6 @@ gem 'carrierwave'
 gem 'acts-as-taggable-on'
 gem 'rails-i18n'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -48,7 +47,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-
+group :production do
+  gem 'pg', '0.20.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,6 +58,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'sqlite3'
 end
 
 group :development do
