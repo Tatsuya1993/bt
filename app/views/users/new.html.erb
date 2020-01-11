@@ -3,7 +3,7 @@
 <div id="logreg-forms">
     <h1 class="h3 font-weight-normal text-center mt-5">ユーザー登録</h1>
     <p style="text-align:center"> 以下の情報で登録 </p>
-    <%= render 'shared/error_messages'%>
+    <%= render 'shared/error_messages', model: @user%>
     <%= form_for @user do |f| %>
       <%= f.text_field :name,class: "form-control mb-1", placeholder: "名前"%>
       <%= f.email_field :email,class: "form-control mb-1", placeholder: "メールアドレス" %>
