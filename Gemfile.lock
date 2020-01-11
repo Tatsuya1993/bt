@@ -298,7 +298,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   minitest-reporters
-  pg (= 0.20.0)
+  pg
   pry-byebug
   pry-doc
   pry-rails
