@@ -32,6 +32,7 @@ class TopicsController < ApplicationController
   
   def edit_confirm
     @topic = Topic.find(params[:id])
+    @topic_edit = @topic.update(topic_params)
   end
   
   def show

@@ -33,5 +33,5 @@ end
 
 50.times do |n|
   Word.create!(name: "example-#{n+1}",
-               description: "example-#{n+1}")
+              description: "example-#{n+1}")
 end
