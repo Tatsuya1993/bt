@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+生物学記事投稿WEBアプリ「Bio Topics」のソースです
 
-Things you may want to cover:
+機能
+・記事投稿（写真OK）
+・記事のあいうえお索引
+・記事に対する「いいね」
+・記事に対するコメント
+・ユーザー登録
+・ユーザー情報編集
+・ランキング表示機能
 
-* Ruby version
+採用したフレームワークや技術
+・Ruby on rails（フレームワーク）
+・Bootstrap
+・Ajax
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
